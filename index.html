@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Add extra details to continue</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Barlow:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <div class="backdrop">
+    <div class="modal" role="dialog" aria-modal="true" aria-labelledby="modalTitle">
+      <h1 class="modal__title" id="modalTitle">Add extra details to continue</h1>
+      <div class="modal__divider"></div>
+
+      <form class="form" id="detailsForm" autocomplete="off" novalidate>
+        <!-- Travel document type -->
+        <div class="field">
+          <label class="field__label" for="docType">Travel document type <span class="req">*</span></label>
+          <div class="select" id="docType" tabindex="0" role="button" aria-haspopup="listbox">
+            <img class="select__icon" src="flag-icon.svg" alt="" aria-hidden="true" />
+            <span class="select__placeholder">Select from list</span>
+            <span class="select__chevron" aria-hidden="true">
+              <svg width="12" height="12" viewBox="0 0 24 24" fill="none">
+                <path d="M6 9l6 6 6-6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+              </svg>
+            </span>
+          </div>
+        </div>
+
+        <!-- Travel document number -->
+        <div class="field">
+          <label class="field__label" for="docNumber">Travel document number <span class="req">*</span></label>
+          <input class="input" type="text" id="docNumber" />
+        </div>
+
+        <!-- Document country -->
+        <div class="field">
+          <label class="field__label" for="docCountry">Document country <span class="req">*</span></label>
+          <div class="select" id="docCountry" tabindex="0" role="button" aria-haspopup="listbox">
+            <img class="select__icon" src="flag-icon.svg" alt="" aria-hidden="true" />
+            <span class="select__placeholder">Select from list</span>
+            <span class="select__chevron" aria-hidden="true">
+              <svg width="12" height="12" viewBox="0 0 24 24" fill="none">
+                <path d="M6 9l6 6 6-6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+              </svg>
+            </span>
+          </div>
+        </div>
+
+        <!-- Address line 1 with autocomplete -->
+        <div class="field" id="addressField">
+          <label class="field__label" for="addressLine1">Address line 1 <span class="req">*</span></label>
+          <div class="input-wrap">
+            <input class="input input--with-icon" type="text" id="addressLine1" />
+            <span class="input__icon" aria-hidden="true">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none">
+                <circle cx="11" cy="11" r="7" stroke="currentColor" stroke-width="2"/>
+                <path d="M20 20l-3.5-3.5" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+              </svg>
+            </span>
+            <ul class="autocomplete" id="autocomplete" role="listbox" hidden></ul>
+          </div>
+        </div>
+
+        <!-- Expanded fields (hidden until an address is chosen) -->
+        <div class="expanded" id="expanded" hidden>
+          <button type="button" class="add-line2" id="addLine2Btn">+ Add address line 2 (optional)</button>
+
+          <div class="field field--line2" id="line2Field" hidden>
+            <label class="field__label" for="addressLine2">Address line 2</label>
+            <input class="input" type="text" id="addressLine2" />
+          </div>
+
+          <div class="field">
+            <label class="field__label" for="postcode">Postcode</label>
+            <input class="input" type="text" id="postcode" />
+          </div>
+
+          <div class="field">
+            <label class="field__label" for="city">City <span class="req">*</span></label>
+            <input class="input" type="text" id="city" />
+          </div>
+
+          <div class="field">
+            <label class="field__label" for="stateProvince">State or province <span class="req">*</span></label>
+            <div class="select select--filled" id="stateProvince" tabindex="0" role="button" aria-haspopup="listbox">
+              <span class="select__value" id="stateProvinceValue">London</span>
+              <span class="select__chevron" aria-hidden="true">
+                <svg width="12" height="12" viewBox="0 0 24 24" fill="none">
+                  <path d="M6 9l6 6 6-6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                </svg>
+              </span>
+            </div>
+          </div>
+
+          <div class="field">
+            <label class="field__label" for="county">County, District or Region</label>
+            <input class="input" type="text" id="county" maxlength="16" />
+            <span class="char-counter" id="countyCounter">0/16</span>
+          </div>
+
+          <div class="actions">
+            <button type="button" class="btn btn--outline" id="cancelBtn">Cancel</button>
+            <button type="submit" class="btn btn--primary">Save</button>
+          </div>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>

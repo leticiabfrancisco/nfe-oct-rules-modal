@@ -1,0 +1,259 @@
+:root {
+  --green: #00A651;
+  --green-dark: #009148;
+  --text: #3d3d3d;
+  --label: #6b6b6b;
+  --border: #d6d6d6;
+  --border-hover: #b3b3b3;
+  --req: #e53935;
+  --placeholder-icon: #cfcfcf;
+  --backdrop: #575757;
+  --white: #ffffff;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html, body {
+  margin: 0;
+  padding: 0;
+  font-family: "Barlow", sans-serif;
+  color: var(--text);
+}
+
+.backdrop {
+  min-height: 100vh;
+  width: 100%;
+  background: var(--backdrop);
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
+  padding: 80px 16px;
+}
+
+.modal {
+  background: var(--white);
+  width: 100%;
+  max-width: 560px;
+  border-radius: 8px;
+  padding: 28px 32px 32px;
+  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.2);
+}
+
+.modal__title {
+  font-size: 20px;
+  font-weight: 600;
+  margin: 0 0 16px;
+  color: var(--text);
+}
+
+.modal__divider {
+  height: 1px;
+  background: #ededed;
+  margin: 0 -32px 20px;
+}
+
+.form {
+  display: flex;
+  flex-direction: column;
+}
+
+.field {
+  margin-bottom: 16px;
+  position: relative;
+}
+
+.field__label {
+  display: block;
+  font-size: 12.5px;
+  color: var(--label);
+  margin-bottom: 6px;
+  font-weight: 400;
+}
+
+.req {
+  color: var(--req);
+}
+
+.input {
+  width: 100%;
+  height: 40px;
+  border: 1px solid var(--border);
+  border-radius: 4px;
+  padding: 0 12px;
+  font-family: inherit;
+  font-size: 14px;
+  color: var(--text);
+  outline: none;
+  transition: border-color 0.15s ease;
+}
+
+.input:hover {
+  border-color: var(--border-hover);
+}
+
+.input:focus {
+  border-color: var(--green);
+}
+
+.input--with-icon {
+  padding-right: 40px;
+}
+
+.input-wrap {
+  position: relative;
+}
+
+.input__icon {
+  position: absolute;
+  right: 12px;
+  top: 50%;
+  transform: translateY(-50%);
+  color: var(--green);
+  display: flex;
+  pointer-events: none;
+}
+
+/* Selects */
+.select {
+  width: 100%;
+  height: 40px;
+  border: 1px solid var(--border);
+  border-radius: 4px;
+  padding: 0 12px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  cursor: pointer;
+  outline: none;
+  transition: border-color 0.15s ease;
+}
+
+.select:hover {
+  border-color: var(--border-hover);
+}
+
+.select:focus {
+  border-color: var(--green);
+}
+
+.select__icon {
+  width: 20px;
+  height: 14px;
+  flex-shrink: 0;
+  display: block;
+}
+
+.select__placeholder {
+  font-size: 14px;
+  color: var(--text);
+  font-weight: 400;
+}
+
+.select__value {
+  font-size: 14px;
+  color: var(--text);
+  flex: 1;
+}
+
+.select__chevron {
+  margin-left: auto;
+  color: var(--green);
+  display: flex;
+}
+
+/* Autocomplete dropdown */
+.autocomplete {
+  position: absolute;
+  top: calc(100% + 2px);
+  left: 0;
+  right: 0;
+  margin: 0;
+  padding: 4px 0;
+  list-style: none;
+  background: var(--white);
+  border: 1px solid var(--border);
+  border-radius: 4px;
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.12);
+  z-index: 20;
+  max-height: 220px;
+  overflow-y: auto;
+}
+
+.autocomplete li {
+  padding: 9px 14px;
+  font-size: 14px;
+  color: var(--text);
+  cursor: pointer;
+}
+
+.autocomplete li:hover,
+.autocomplete li.active {
+  background: #f3f3f3;
+}
+
+/* Expanded section */
+.add-line2 {
+  background: none;
+  border: none;
+  color: var(--green);
+  font-family: inherit;
+  font-size: 13px;
+  font-weight: 500;
+  padding: 0;
+  margin: -6px 0 16px;
+  cursor: pointer;
+}
+
+.add-line2:hover {
+  color: var(--green-dark);
+  text-decoration: underline;
+}
+
+.char-counter {
+  position: absolute;
+  right: 2px;
+  bottom: -18px;
+  font-size: 11px;
+  color: var(--label);
+}
+
+/* Actions */
+.actions {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 28px;
+}
+
+.btn {
+  height: 40px;
+  padding: 0 22px;
+  border-radius: 4px;
+  font-family: inherit;
+  font-size: 14px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background 0.15s ease, color 0.15s ease;
+}
+
+.btn--outline {
+  background: var(--white);
+  border: 1px solid var(--green);
+  color: var(--green);
+}
+
+.btn--outline:hover {
+  background: rgba(0, 166, 81, 0.06);
+}
+
+.btn--primary {
+  background: var(--green);
+  border: 1px solid var(--green);
+  color: var(--white);
+}
+
+.btn--primary:hover {
+  background: var(--green-dark);
+  border-color: var(--green-dark);
+}
