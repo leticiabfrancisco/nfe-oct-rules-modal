@@ -97,6 +97,10 @@ html, body {
   border-color: var(--green);
 }
 
+.input::placeholder {
+  color: #c6c6c6;
+}
+
 .input--with-icon {
   padding-right: 40px;
 }
